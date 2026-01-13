@@ -13,51 +13,57 @@
 </header>
 
 <main>
-  <div class="search-row">
-    <input id="searchInput" placeholder="Search for a book...">
-    <button id="filterToggle">Filters ▾</button>
+
+  <!-- HERO -->
+  <div id="hero" class="hero">
+    <h2 class="hero-title">Find your book</h2>
+    <p class="hero-sub">Tap to start searching</p>
   </div>
 
-  <!-- FILTER DROPDOWN -->
-<div id="filterPanel" class="filter-panel filter-hidden">
-  <div class="filter-row">
-    <input type="checkbox" id="filterAll" checked>
-    <label for="filterAll">All</label>
+  <!-- SEARCH -->
+  <div id="searchWrapper" class="search-wrapper">
+    <div class="search-row">
+      <input id="searchInput" placeholder="Search for a book..." />
+      <button id="filterToggle">Filters ▾</button>
+    </div>
   </div>
 
-  <div class="filter-row">
-    <input type="checkbox" id="fFiction" value="Fiction">
-    <label for="fFiction">Fiction</label>
+  <!-- FILTER PANEL -->
+  <div id="filterPanel" class="filter-panel filter-hidden">
+    <div class="filter-row">
+      <input type="checkbox" id="filterAll" checked>
+      <label for="filterAll">All</label>
+    </div>
+    <div class="filter-row">
+      <input type="checkbox" value="Fiction">
+      <label>Fiction</label>
+    </div>
+    <div class="filter-row">
+      <input type="checkbox" value="Non-Fiction">
+      <label>Non-Fiction</label>
+    </div>
+    <div class="filter-row">
+      <input type="checkbox" value="Romance">
+      <label>Romance</label>
+    </div>
   </div>
 
-  <div class="filter-row">
-    <input type="checkbox" id="fNonFiction" value="Non-Fiction">
-    <label for="fNonFiction">Non-Fiction</label>
-  </div>
-
-  <div class="filter-row">
-    <input type="checkbox" id="fRomance" value="Romance">
-    <label for="fRomance">Romance</label>
-  </div>
-</div>
-
-  <!-- SEARCH HISTORY -->
+ <div class="results-container">
   <div id="history"></div>
-
-  <!-- RESULTS -->
   <div id="results"></div>
   <div id="noResults"></div>
+</div>
 </main>
 
 <!-- BOOK MODAL -->
 <div id="bookOverlay" class="overlay hidden">
-  <div class="modal" id="bookModal">
+  <div class="modal">
     <button class="close-btn" id="closeBook">✕</button>
     <h2 id="bookTitle"></h2>
     <div id="genreChip" class="genre-chip"></div>
     <p id="bookAuthor"></p>
     <p id="bookShelf"></p>
-    <img id="mapImage">
+    <img id="mapImage" />
   </div>
 </div>
 
