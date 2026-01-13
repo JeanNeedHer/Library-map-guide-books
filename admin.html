@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel</title>
+  <title>Admin – Add Book</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Admin – Add Book</h2>
+<main class="admin-wrapper">
+  <div class="admin-card">
+    <h1>Admin Panel</h1>
+    <p class="admin-subtitle">Add a new book to the library</p>
 
-<input id="title" placeholder="Title">
-<input id="author" placeholder="Author">
-<select id="genre">
-  <option>Fiction</option>
-  <option>Non-Fiction</option>
-  <option>Romance</option>
-</select>
-<input id="shelf" placeholder="Shelf">
+    <input id="title" placeholder="Book title">
+    <input id="author" placeholder="Author name">
 
-<button id="addBook">Add Book</button>
+    <select id="genre">
+      <option value="Fiction">Fiction</option>
+      <option value="Non-Fiction">Non-Fiction</option>
+      <option value="Romance">Romance</option>
+    </select>
+
+    <input id="shelf" placeholder="Shelf (e.g. F4)">
+
+    <button id="addBook" class="primary-btn">Add Book</button>
+
+    <p id="adminMsg" class="admin-msg"></p>
+  </div>
+</main>
 
 <script src="database.js"></script>
 <script src="admin.js"></script>
