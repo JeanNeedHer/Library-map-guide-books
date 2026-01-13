@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin – Add Book</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <main class="admin-wrapper">
-  <div class="admin-card">
-    <h1>Admin Panel</h1>
-    <p class="admin-subtitle">Add a new book to the library</p>
 
-    <input id="title" placeholder="Book title">
-    <input id="author" placeholder="Author name">
+  <!-- ADMIN ACTION BUTTONS -->
+  <div class="admin-actions">
+    <button id="openAdd" class="primary-btn">➕ Add Book</button>
+    <button id="openManage" class="primary-btn">📚 Manage Books</button>
+    <button id="openStats" class="primary-btn">📊 Statistics</button>
+  </div>
+
+</main>
+
+<!-- ADD BOOK MODAL -->
+<div class="overlay hidden" id="addModal">
+  <div class="modal">
+    <button class="close-btn" data-close>✕</button>
+    <h2>Add Book</h2>
+
+    <input id="title" placeholder="Book title" />
+    <input id="author" placeholder="Author name" />
 
     <select id="genre">
       <option value="Fiction">Fiction</option>
@@ -22,13 +34,41 @@
       <option value="Romance">Romance</option>
     </select>
 
-    <input id="shelf" placeholder="Shelf (e.g. F4)">
-
+    <input id="shelf" placeholder="Shelf (e.g. F4)" />
     <button id="addBook" class="primary-btn">Add Book</button>
 
     <p id="adminMsg" class="admin-msg"></p>
   </div>
-</main>
+</div>
+
+<!-- MANAGE BOOKS MODAL -->
+<div class="overlay hidden" id="manageModal">
+  <div class="modal wide">
+    <button class="close-btn" data-close>✕</button>
+    <h2>Manage Books</h2>
+
+    <input id="adminSearch" placeholder="Search books..." />
+
+    <div id="bookList" class="admin-book-list"></div>
+  </div>
+</div>
+
+<!-- STATS MODAL -->
+<div class="overlay hidden" id="statsModal">
+  <div class="modal">
+    <button class="close-btn" data-close>✕</button>
+    <h2>Library Stats</h2>
+
+    <p>Total books: <strong id="statTotal">0</strong></p>
+    <p>Fiction: <strong id="statFiction">0</strong></p>
+    <p>Non-Fiction: <strong id="statNonFiction">0</strong></p>
+    <p>Romance: <strong id="statRomance">0</strong></p>
+
+    <p style="margin-top:12px">
+      Most searched: <strong id="statTop">—</strong>
+    </p>
+  </div>
+</div>
 
 <script src="database.js"></script>
 <script src="admin.js"></script>
