@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Navigation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Library Navigation System</h1>
+</header>
+
+<main>
+  <div class="search-row">
+    <input id="searchInput" placeholder="Search for a book...">
+    <button id="filterToggle">Filters ▾</button>
+  </div>
+
+  <!-- FILTER DROPDOWN -->
+<div id="filterPanel" class="filter-panel filter-hidden">
+  <div class="filter-row">
+    <input type="checkbox" id="filterAll" checked>
+    <label for="filterAll">All</label>
+  </div>
+
+  <div class="filter-row">
+    <input type="checkbox" id="fFiction" value="Fiction">
+    <label for="fFiction">Fiction</label>
+  </div>
+
+  <div class="filter-row">
+    <input type="checkbox" id="fNonFiction" value="Non-Fiction">
+    <label for="fNonFiction">Non-Fiction</label>
+  </div>
+
+  <div class="filter-row">
+    <input type="checkbox" id="fRomance" value="Romance">
+    <label for="fRomance">Romance</label>
+  </div>
+</div>
+
+  <!-- SEARCH HISTORY -->
+  <div id="history"></div>
+
+  <!-- RESULTS -->
+  <div id="results"></div>
+  <div id="noResults"></div>
+</main>
+
+<!-- BOOK MODAL -->
+<div id="bookOverlay" class="overlay hidden">
+  <div class="modal" id="bookModal">
+    <button class="close-btn" id="closeBook">✕</button>
+    <h2 id="bookTitle"></h2>
+    <div id="genreChip" class="genre-chip"></div>
+    <p id="bookAuthor"></p>
+    <p id="bookShelf"></p>
+    <img id="mapImage">
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div id="adminOverlay" class="overlay hidden">
+  <div class="modal">
+    <button class="close-btn" id="closeAdmin">✕</button>
+    <h2>Admin Access</h2>
+    <input id="adminPassword" type="password" placeholder="Enter password">
+    <button id="adminEnter">Enter</button>
+    <p id="adminError" class="error"></p>
+  </div>
+</div>
+
+<button id="themeToggle" class="fab">🌙</button>
+<button id="adminBtn" class="fab left">🛡️</button>
+
+<script src="database.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

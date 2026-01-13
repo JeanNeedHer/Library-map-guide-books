@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Klee+One&display=swap');
+
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #222;
+  --border: #ddd;
+}
+
+body.dark {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --text: #ffffff;
+  --border: #333;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Klee One', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  margin: 24px 0;
+}
+
+main {
+  width: 100%;
+  max-width: 520px;
+  padding: 0 16px 80px;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  text-align: center;
+}
+
+button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+/* FILTER PANEL */
+.filter-panel {
+  margin-top: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  padding: 14px 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  width: 100%;          /* 👈 same width as search bar */
+  max-width: 100%;
+  text-align: left;     /* 👈 KEY FIX */
+  align-items: flex-start; /* 👈 content hugs left */
+}
+
+.filter-row {
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+
+/* Checkbox sizing */
+.filter-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: #6c63ff;
+}
+
+/* Label sticks next to checkbox */
+.filter-row label {
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;           /* 👈 kill browser defaults */
+  padding: 0;
+}
+
+/* Hover polish */
+.filter-row:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+body.dark .filter-row:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+#history {
+  margin-top: 10px;
+}
+
+.history-item {
+  background: var(--card);
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+#results {
+  margin-top: 16px;
+}
+
+.result-item {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.modal {
+  background: var(--card);
+  color: var(--text);
+  width: 90%;
+  max-width: 400px;
+  padding: 24px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  animation: pop .25s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--text);
+}
+
+img {
+  max-width: 220px;
+  margin-top: 16px;
+  border-radius: 12px;
+}
+
+.genre-chip {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--border);
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+.fab.left {
+  left: 20px;
+  right: auto;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+/* Generic utility (no !important) */
+.hidden {
+  display: none;
+}
+
+/* Filter-only hidden state */
+.filter-hidden {
+  display: none;
+}
