@@ -221,3 +221,28 @@ img {
 .filter-hidden {
   display: none;
 }
+
+/* =======================
+   DESKTOP ENHANCEMENTS
+======================= */
+@media (min-width: 768px) {
+  main {
+    max-width: 640px;
+  }
+
+  .search-row {
+    gap: 12px;
+  }
+
+  .result-item {
+    transition: transform 0.15s ease;
+  }
+
+  .result-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .filter-panel {
+    max-width: 100%;
+  }
+}
