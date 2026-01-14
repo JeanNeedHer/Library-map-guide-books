@@ -1,12 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  // 🔄 DARK MODE SYNC
+  // 🌙 DARK MODE SYNC
   if (localStorage.getItem("dark") === "true") {
     document.body.classList.add("dark");
   }
   
   // 📚 DATA
-  let books = JSON.parse(localStorage.getItem("books")) || [];
+  let books = JSON.parse(localStorage.getItem("books")) || DEFAULT_BOOKS;
+  
+  // Save default books to localStorage if empty
+  if (!localStorage.getItem("books")) {
+    localStorage.setItem("books", JSON.stringify(DEFAULT_BOOKS));
+  }
   
   // 🧩 ELEMENTS
   const addModal = document.getElementById("addModal");
@@ -105,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBooks();
   };
   
-  // 📊 STATS (THIS WAS NEVER FIRING BEFORE)
+  // 📊 STATS
   function updateStats() {
     document.getElementById("statTotal").textContent = books.length;
     document.getElementById("statFiction").textContent =
